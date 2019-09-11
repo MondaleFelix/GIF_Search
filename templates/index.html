@@ -23,7 +23,7 @@
 
         <ul>
             {% for gif in results %}
-            <img src={{gif.media[0].mediumgif.url }}>
+            <li><img src={{gif.media[0].mediumgif.url}}></li>
             {% endfor %}
         </ul>
     {% else %}
