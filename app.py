@@ -1,6 +1,11 @@
 from flask import Flask, render_template, request
 import requests
 import json
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
+TENOR_API_KEY = os.getenv("TENOR_API_KEY")
 
 app = Flask(__name__)
 
@@ -12,7 +17,7 @@ def index():
     # TODO: Make 'params' dict with query term and API key
     payload = {
     	"q": search,
-    	"key": "5KADMY4UP11V"
+    	"key": TENOR_API_KEY
     }
     # TODO: Make an API call to Tenor using the 'requests' library
     req = requests.get("https://api.tenor.com/v1/search?", params=payload)
